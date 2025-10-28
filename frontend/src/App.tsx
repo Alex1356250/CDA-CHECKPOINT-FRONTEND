@@ -21,7 +21,7 @@ function App() {
           <Route Component={PageLayout}>
             <Route path="/" Component={HomePage} />
             <Route path="/index" Component={Index} />
-            <Route path="/Show/:code" Component={Show} />
+            <Route path="/showcountry/:code" Component={Show} />
             <Route path="/addcountry/" Component={AddCountry} />
             <Route path="*" Component={() => <Navigate to="/" />} />
           </Route>

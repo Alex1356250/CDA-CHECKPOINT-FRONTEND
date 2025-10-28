@@ -28,12 +28,12 @@ export function CountriesList() {
   if (error) return <p>Erreur: {error.message}</p>;
 
   return (
-    <ul>
+    <ul className="countries-grid">
       {data?.countries.map((c) => (
         <li key={c.code}>
           <Link to={`/showcountry/${c.code}`} style={{ textDecoration: "none", color: "inherit" }}>
-            <span style={{ marginRight: 8 }}>{c.emoji}</span>
-            <span>{c.name}</span>
+            <span className="country-emoji" style={{ marginRight: 8 }}>{c.emoji}</span>
+            <div className="country-title">{c.name}</div>
           </Link>
         </li>
       ))}

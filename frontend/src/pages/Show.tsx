@@ -65,14 +65,16 @@ export function Show() {
 
   const c = data.country;
   return (
-    <div>
-      <h2>
+    <div className="main-container country-detail">
+      <div className="country-emoji" aria-hidden>
+      <h2 className="meta">
         {c.emoji} {c.name} ({c.code})
       </h2>
-      <p>Continent: {c.continent?.name ?? "Non renseigné"}</p>
+      <p className="meta">Continent: {c.continent?.name ?? "Non renseigné"}</p>
       <p>
         <Link to="/index">← Retour à la liste</Link>
       </p>
+      </div>
     </div>
   );
 }

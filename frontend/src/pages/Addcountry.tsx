@@ -80,53 +80,29 @@ export function AddCountry() {
   };
 
   return (
-    <div>
-      <h1>Ajouter un pays</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Nom:
+    <div className="main-container">
+      <div className="form-card" role="region" aria-label="Ajouter un pays">
+        <h1>Ajouter un pays</h1>
+        <form onSubmit={handleSubmit} style={{display:"contents"}}>
+          <div className="field">
+            <label>Nom:</label>
             <input value={name} onChange={(e) => setName(e.target.value)} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Code:
-            <input value={code} onChange={(e) => setCode(e.target.value)} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Emoji:
-            <input value={emoji} onChange={(e) => setEmoji(e.target.value)} placeholder="🇫🇷" />
-          </label>
-        </div>
-        <div>
-          <button type="submit" disabled={loading}>
-            {loading ? "Ajout..." : "Ajouter"}
-          </button>
-        </div>
-
-        {error ? (
-          <div>
-            <p>Erreur: {error.message}</p>
-            {error.graphQLErrors?.length ? (
-              <details>
-                <summary>Détails GraphQL</summary>
-                <pre>{JSON.stringify(error.graphQLErrors, null, 2)}</pre>
-              </details>
-            ) : null}
-            {/* @ts-ignore */}
-            {error.networkError?.result ? (
-              <details>
-                <summary>Network result</summary>
-                {/* @ts-ignore */}
-                <pre>{JSON.stringify(error.networkError.result, null, 2)}</pre>
-              </details>
-            ) : null}
           </div>
-        ) : null}
-      </form>
+          <div className="field">
+            <label>Emoji:</label>
+            <input value={emoji} onChange={(e) => setEmoji(e.target.value)} placeholder="🇫🇷" />
+          </div>
+          <div className="field">
+            <label>Code:</label>
+            <input value={code} onChange={(e) => setCode(e.target.value)} />
+          </div>
+          <div style={{display:"flex",alignItems:"center"}}>
+            <button className="btn-add" type="submit" disabled={loading}>
+              {loading ? "Ajout..." : "Add"}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
