@@ -82,7 +82,6 @@ export function AddCountry() {
   return (
     <div className="main-container">
       <div className="form-card" role="region" aria-label="Ajouter un pays">
-        <h1>Ajouter un pays</h1>
         <form onSubmit={handleSubmit} style={{display:"contents"}}>
           <div className="field">
             <label>Nom:</label>

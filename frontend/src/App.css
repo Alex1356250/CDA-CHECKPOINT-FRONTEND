@@ -49,6 +49,56 @@ header.header .subtitle{
   font-size:20px;
   opacity:0.95;
 }
+/* header extras for menu */
+.header-subtitle {
+  margin-top: 8px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+}
+
+.header-nav {
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.95);
+  padding: 8px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.nav-link.active {
+  background: #fff;
+  color: var(--brand-pink);
+  box-shadow: none;
+  font-weight: 700;
+}
+
+/* small screens: stack and reduce spacing */
+@media (max-width: 480px) {
+  .header-nav {
+    gap: 8px;
+  }
+  .nav-link {
+    padding: 7px 10px;
+    font-size: 14px;
+  }
+}
 
 /* Page container */
 .main-container{
@@ -136,4 +186,21 @@ ul.countries-grid li a{ display:block; color:inherit; text-decoration:none; }
   header.header h1{ font-size:28px; }
   .form-card{ padding:18px; }
   .country-detail .country-emoji{ font-size:80px; }
+}
+
+.back-link{
+  display:inline-block;
+  margin-top:18px;
+  font-size:16px;        /* plus petit que .meta */
+  color: #333;           /* neutre */
+  text-decoration:none;
+  font-weight:500;
+  opacity:0.9;
+}
+.back-link:hover{
+  color: var(--brand-pink);
+  text-decoration:underline;
+}
+@media (max-width:700px){
+  .back-link{ font-size:15px; margin-top:12px; }
 }

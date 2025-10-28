@@ -34,45 +34,19 @@ export function Show() {
     onError: (e) => console.error("useQuery onError:", e),
   });
 
-  if (!code) return <p>Code de pays manquant</p>;
-  if (loading) return <p>Chargement…</p>;
-
-  if (error) {
-    console.error("Apollo error object:", error);
-    return (
-      <div>
-        <p>Erreur: {error.message}</p>
-        {error.graphQLErrors?.length ? (
-          <details>
-            <summary>Détails GraphQL</summary>
-            <pre>{JSON.stringify(error.graphQLErrors, null, 2)}</pre>
-          </details>
-        ) : null}
-        {error.networkError ? (
-          <details>
-            <summary>Network error</summary>
-            <pre>{JSON.stringify(error.networkError, null, 2)}</pre>
-          </details>
-        ) : null}
-        <p>
-          <Link to="/index">← Retour à la liste</Link>
-        </p>
-      </div>
-    );
-  }
-
-  if (!data?.country) return <p>Pays introuvable</p>;
-
   const c = data.country;
   return (
     <div className="main-container country-detail">
       <div className="country-emoji" aria-hidden>
+        <div>
+          {c.emoji}
+        </div>
       <h2 className="meta">
-        {c.emoji} {c.name} ({c.code})
+        {c.name} ({c.code})
       </h2>
       <p className="meta">Continent: {c.continent?.name ?? "Non renseigné"}</p>
       <p>
-        <Link to="/index">← Retour à la liste</Link>
+        <Link to="/index" className="back-link">← Retour à la liste</Link>
       </p>
       </div>
     </div>

@@ -22,11 +22,7 @@ interface Data {
 }
 
 export function CountriesList() {
-  const { data, loading, error } = useQuery<Data>(COUNTRIES_QUERY);
-
-  if (loading) return <p>Chargement…</p>;
-  if (error) return <p>Erreur: {error.message}</p>;
-
+  const { data } = useQuery<Data>(COUNTRIES_QUERY);
   return (
     <ul className="countries-grid">
       {data?.countries.map((c) => (

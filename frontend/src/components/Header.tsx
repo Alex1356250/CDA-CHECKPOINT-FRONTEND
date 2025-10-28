@@ -1,11 +1,19 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export function Header() {
   return (
     <header className="header">
       <h1>Checkpoint : frontend</h1>
-      <Link to="/Index">Show All Countries</Link> 
-      <Link to="/addcountry">Adding a new country</Link>   
+      <div className="header-subtitle">Countries</div>
+
+      <nav className="header-nav" aria-label="Main navigation">
+        <NavLink to="/index" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+          Show All
+        </NavLink>
+        <NavLink to="/addcountry" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+          Add country
+        </NavLink>
+      </nav>
     </header>
   );
 }
